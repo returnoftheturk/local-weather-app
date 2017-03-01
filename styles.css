@@ -1,0 +1,17 @@
+body{
+  margin-top: 20px;
+}
+
+.jumbotron{
+  text-align: center;
+  /*background-color: black;*/
+}
+
+.monospace {
+  font-family: monospace;
+  color: white;
+}
+.large-text {
+  color: white;
+  font-size: 60px;
+}
