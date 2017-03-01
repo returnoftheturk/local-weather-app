@@ -5,6 +5,7 @@ $(document).ready(function(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function setPosition(position){
       $.ajax( {
+
         url:"http://api.openweathermap.org/data/2.5/weather?",
         dataType: "JSON",
         data: "lat=" + position.coords.latitude + "&lon="+ position.coords.longitude
@@ -16,6 +17,7 @@ $(document).ready(function(){
           Accept: "application/JSON"
         },
         success: function(data){
+          console.log("success");
           $("#location").html(data.name);
           $("#description").html(data.weather[0].main);
           $("#condition").html(data.main.temp_min);
@@ -32,6 +34,7 @@ $(document).ready(function(){
     alert("You must turn on Geolocation for this app to work");
     // x.innerHTML = "Geolocation is not supported by this browser.";
   }
+
 
 
   var today = new Date();
