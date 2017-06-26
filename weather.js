@@ -6,7 +6,7 @@ $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(function setPosition(position){
       $.ajax( {
 
-        url:"http://api.openweathermap.org/data/2.5/weather?",
+        url:"https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?",
         dataType: "JSON",
         data: "lat=" + position.coords.latitude + "&lon="+ position.coords.longitude
         + "&appid=a23cc25cf5bb29796354ebbfb426a789&units=metric",
