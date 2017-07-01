@@ -6,27 +6,32 @@ $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(function setPosition(position){
       $.ajax( {
 
-        url:"http://api.openweathermap.org/data/2.5/weather?",
-        dataType: "JSON",
-        data: "lat=" + position.coords.latitude + "&lon="+ position.coords.longitude
-        + "&appid=a23cc25cf5bb29796354ebbfb426a789&units=metric",
-        crossDomain:true,
-        type: "GET",
+        url:"https://api.wunderground.com/api/1699727eaedf2f6e/conditions/q/"
+          + position.coords.latitude + "," + position.coords.longitude + ".json",
+        dataType: "json",
+        //data: position.coords.latitude + "," + position.coords.longitude + ".json",
+        //crossDomain:true,
+        //type: "GET",
         header:{
           contentType: "application/javascript",
           Accept: "application/JSON"
         },
         success: function(data){
           console.log("success");
-          $("#location").html(data.name);
-          $("#description").html(data.weather[0].main);
-          $("#condition").html(data.main.temp_min);
-          $("#temperature").html(data.main.temp_max);
+          console.log(this.url);
+          $("#location").html(data.current_observation.display_location.full);
+          console.log(data.current_observation.display_location.full);
+          $("#description").html(data.current_observation.weather);
+          console.log(data.current_observation.weather);
+          $("#condition").html(data.current_observation.temp_f);
+          console.log(data.current_observation.temp_f);
+          $("#temperature").html(data.current_observation.temp_c);
+          console.log(data.current_observation.temp_c);
 
-          $("#icon").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+          $("#icon").attr("src", data.icon_url);
 
         },
-        cache: false
+        cache: true
       });
     });
 
