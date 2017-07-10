@@ -1,6 +1,18 @@
 $(document).ready(function(){
   var x = document.getElementById("demo");
+  var temp_f, temp_c;
 
+  $(".tempunits").click(function(){
+    if($(this).text()=="\u{00B0}"+"C"){
+      $(this).text("\u{00B0}"+"F");
+      console.log($(this).text());
+      $("#temperature").html(temp_f);
+    } else if($(this).text()=="\u{00B0}"+"F"){
+      $(this).text("\u{00B0}"+"C");
+      console.log($(this).text());
+      $("#temperature").html(temp_c);
+    }
+  });
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function setPosition(position){
@@ -9,9 +21,7 @@ $(document).ready(function(){
         url:"https://api.wunderground.com/api/1699727eaedf2f6e/conditions/q/"
           + position.coords.latitude + "," + position.coords.longitude + ".json",
         dataType: "json",
-        //data: position.coords.latitude + "," + position.coords.longitude + ".json",
-        //crossDomain:true,
-        //type: "GET",
+
         header:{
           contentType: "application/javascript",
           Accept: "application/JSON"
@@ -19,12 +29,15 @@ $(document).ready(function(){
         success: function(data){
           console.log("success");
 
+          temp_c = data.current_observation.temp_c;
+          temp_f = data.current_observation.temp_f;
+
           console.log(this.url);
           $("#location").html(data.current_observation.observation_location.full);
           console.log(data.current_observation.observation_location.full);
           $("#description").html(data.current_observation.weather);
           console.log(data.current_observation.weather);
-          $("#condition").html(data.current_observation.temp_f);
+          $("#condition").html("Condition");
           console.log(data.current_observation.temp_f);
           $("#temperature").html(data.current_observation.temp_c);
           console.log(data.current_observation.temp_c);
