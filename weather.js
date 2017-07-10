@@ -18,9 +18,10 @@ $(document).ready(function(){
         },
         success: function(data){
           console.log("success");
+
           console.log(this.url);
-          $("#location").html(data.current_observation.display_location.full);
-          console.log(data.current_observation.display_location.full);
+          $("#location").html(data.current_observation.observation_location.full);
+          console.log(data.current_observation.observation_location.full);
           $("#description").html(data.current_observation.weather);
           console.log(data.current_observation.weather);
           $("#condition").html(data.current_observation.temp_f);
@@ -28,7 +29,8 @@ $(document).ready(function(){
           $("#temperature").html(data.current_observation.temp_c);
           console.log(data.current_observation.temp_c);
 
-          $("#icon").attr("src", data.icon_url);
+          $("#icon").attr("src", data.current_observation.icon_url);
+          console.log(data.current_observation.icon_url);
 
         },
         cache: true
