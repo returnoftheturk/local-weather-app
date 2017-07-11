@@ -1,19 +1,32 @@
 body{
   margin-top: 20px;
+  /*background-image: url('background.jpg');*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .jumbotron{
   text-align: center;
-  /*background-color: black;*/
+  background-color: transparent;
 }
 
 .monospace {
   font-family: monospace;
   color: white;
+  font-size: 50px;
 }
-.large-text {
+
+.medium-text {
   color: white;
-  font-size: 60px;
+  font-size: 30px;
+  font-family: arial;
+}
+
+.small-text {
+  color: white;
+  font-size: 20px;
+  font-family: arial;
 }
 
 .tempunits {

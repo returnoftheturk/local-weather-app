@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body background = "night_sky.jpg">
   <script src="weather.js"></script>
   <script src="js/jquery-1.11.3.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -24,27 +24,29 @@
   </div>
   <div class="col-md-6 jumbotron"  >
     <p id="demo"></p>
-    <div class="large-text" id="location">
+    <div class="monospace" id="location">
 
     </div>
-    <div class="" id="description">
+    <div class="monospace" id="temperature">
 
     </div>
-    <div class="large-text" id="todays-date">
-
+    <div class="medium-text" id = "units">
+      <button type="button" name="button" class="tempunits">&#176;C</button>
     </div>
-    <h2>Weather App </h2>
-    <div class="" id="condition">
 
-    </div>
-    <div class="" id="temperature">
+    <!-- <div class="medium-text" id="description">
 
-    </div>
-    <div class="" id = "units">
-        <button type="button" name="button" class="tempunits">&#176;C</button>
+    </div> -->
+
+    <div class="medium-text" id="condition">
+
     </div>
 
     <img id="icon" src="" alt="">
+    <div class="small-text" id="todays-date">
+
+    </div>
+    <h2>Weather App </h2>
 
   </div>
   <div class="col-md-3">
