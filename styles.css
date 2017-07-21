@@ -22,6 +22,9 @@ body{
   font-size: 30px;
   font-family: arial;
 }
+.blue-text {
+  color: #5DADE2;
+}
 
 .small-text {
   color: white;
